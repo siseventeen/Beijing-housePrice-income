@@ -27,7 +27,8 @@ var rateData = [];
 for (var i = 0; i < 17; i++) {
     var date = i+2001;
     category.push(date);
-    rateData[i]=lineData[i]/barData[i];
+    var rate = lineData[i]/barData[i];
+    rateData[i]= rate.toFixed(2);
 }
 
 
