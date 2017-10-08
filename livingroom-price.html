@@ -11,10 +11,27 @@
 var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
- 
 var data = echarts.dataTool.prepareBoxplotData([
-    [21616, 54599.5, 69534, 91504, 159980],
-    [15202, 42841, 51050, 71902, 159977]
+    [30645,
+54699,
+66480,
+86502,
+159424,],
+   [19747,
+47590,
+60778,
+85884,
+159949,],
+[15202,
+40968.5,
+52101,
+77910.75,
+159978,],
+[18038,
+36700.5,
+49396,
+79378,
+149669,],
 ]);
 
 option = {
@@ -32,10 +49,12 @@ option = {
     },
     xAxis: {
         type: 'category',
-        data: ['Houses adjacent to subway', 'Houses away from subway'],
+        data: ['no living room','1 living rooms','2 living rooms','3 living rooms'],
+
         nameTextStyle: {
             color: '#3259B8',
             fontSize: 14,
+            
         },
         axisLine: {
             lineStyle: {
@@ -54,9 +73,7 @@ option = {
             color: '#3259B8',
             fontSize: 14,
         },
-        axisLabel: {
-            formatter: '{value} CNY/㎡'
-        },
+        
         axisLine: {
             lineStyle: {
                 color: '#3259B8',
@@ -72,9 +89,27 @@ option = {
             name: 'boxplot',
             type: 'boxplot',
             data: [
-                [21616, 54599.5, 69534, 91504, 159980],
-                [15202, 42841, 51050, 71902, 159977]
-            ],
+       [30645,
+54699,
+66480,
+86502,
+159424,],
+   [19747,
+47590,
+60778,
+85884,
+159949,],
+[15202,
+40968.5,
+52101,
+77910.75,
+159978,],
+[18038,
+36700.5,
+49396,
+79378,
+149669,],
+],
             itemStyle: {
                 normal:{
                     borderColor: {
