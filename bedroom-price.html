@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="echarts.min.js"></script>
+       <script type="text/javascript" src="dataTool.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+var data = echarts.dataTool.prepareBoxplotData([
+    [30645,
+53490,
+66640.5,
+89123,
+159949,],
+    [19464,
+46454,
+59139,
+83479,
+19464,],
+[16704,
+46041,
+60155,
+86818,
+159980,],
+[21543,
+41619.75,
+58819.5,
+87540,
+159978,],
+[15202,
+35757,
+44721,
+59916.5,
+159825,],
+[22158,
+34754.5,
+49718,
+71637,
+139972,],
+]);
+
+option = {
+
+    tooltip: {
+        trigger: 'item',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    grid: {
+        left: '10%',
+        right: '10%',
+        bottom: '15%'
+    },
+    xAxis: {
+        type: 'category',
+        data: ['1','2','3','4','5','6'],
+        name: 'number of bedroom',
+        nameLocation:'end',
+        nameTextStyle: {
+            color: '#3259B8',
+            fontSize: 14,
+            
+        },
+        axisLine: {
+            lineStyle: {
+                color: '#3259B8',
+            }
+        },
+        splitLine: {
+            show: false
+        }
+    },
+    
+    yAxis: {
+        type: 'value',
+        name: 'price per square meter',
+        nameTextStyle: {
+            color: '#3259B8',
+            fontSize: 14,
+        },
+        
+        axisLine: {
+            lineStyle: {
+                color: '#3259B8',
+            }},
+        splitLine: {
+            lineStyle: {
+                color: '#A7BAFA',
+            },
+        }
+        
+    },
+    series: [{
+            name: 'boxplot',
+            type: 'boxplot',
+            data: [
+    [30645,
+53490,
+66640.5,
+89123,
+159949,],
+    [19464,
+46454,
+59139,
+83479,
+179440,],
+[16704,
+46041,
+60155,
+86818,
+159980,],
+[21543,
+41619.75,
+58819.5,
+87540,
+159978,],
+[15202,
+35757,
+44721,
+59916.5,
+159825,],
+[22158,
+34754.5,
+49718,
+71637,
+139972,],
+],
+            itemStyle: {
+                normal:{
+                    borderColor: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0,
+                        color: '#F02FC2' // 0% 处的颜色
+                    }, {
+                        offset: 1,
+                        color: '#3EACE5' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                },
+                borderWidth:2,
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0,
+                        color: 'rgba(240,47,194,0.7)'  // 0% 处的颜色
+                    }, {
+                        offset: 1,
+                        color: 'rgba(62,172,299,0.7)' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                },
+            }
+            },
+            tooltip: {
+                formatter: function(param) {
+                    return [
+
+                        'upper: ' + param.data[5],
+                        'Q3: ' + param.data[4],
+                        'median: ' + param.data[3],
+                        'Q1: ' + param.data[2],
+                        'lower: ' + param.data[1]
+                    ].join('<br/>')
+                }
+            }
+        },
+
+    ]
+};
+
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

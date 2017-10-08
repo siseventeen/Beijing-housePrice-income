@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="echarts.min.js"></script>
+       <script type="text/javascript" src="dataTool.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+ 
+var data = echarts.dataTool.prepareBoxplotData([
+    [21616, 54599.5, 69534, 91504, 159980],
+    [15202, 42841, 51050, 71902, 159977]
+]);
+
+option = {
+
+    tooltip: {
+        trigger: 'item',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    grid: {
+        left: '10%',
+        right: '10%',
+        bottom: '15%'
+    },
+    xAxis: {
+        type: 'category',
+        data: ['Houses adjacent to subway', 'Houses away from subway'],
+        nameTextStyle: {
+            color: '#3259B8',
+            fontSize: 14,
+        },
+        axisLine: {
+            lineStyle: {
+                color: '#3259B8',
+            }
+        },
+        splitLine: {
+            show: false
+        }
+    },
+    
+    yAxis: {
+        type: 'value',
+        name: 'price per square meter',
+        nameTextStyle: {
+            color: '#3259B8',
+            fontSize: 14,
+        },
+        axisLabel: {
+            formatter: '{value} CNY/㎡'
+        },
+        axisLine: {
+            lineStyle: {
+                color: '#3259B8',
+            }},
+        splitLine: {
+            lineStyle: {
+                color: '#A7BAFA',
+            },
+        }
+        
+    },
+    series: [{
+            name: 'boxplot',
+            type: 'boxplot',
+            data: [
+                [21616, 54599.5, 69534, 91504, 159980],
+                [15202, 42841, 51050, 71902, 159977]
+            ],
+            itemStyle: {
+                normal:{
+                    borderColor: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0,
+                        color: '#F02FC2' // 0% 处的颜色
+                    }, {
+                        offset: 1,
+                        color: '#3EACE5' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                },
+                borderWidth:2,
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0,
+                        color: 'rgba(240,47,194,0.7)'  // 0% 处的颜色
+                    }, {
+                        offset: 1,
+                        color: 'rgba(62,172,299,0.7)' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                },
+            }
+            },
+            tooltip: {
+                formatter: function(param) {
+                    return [
+
+                        'upper: ' + param.data[5],
+                        'Q3: ' + param.data[4],
+                        'median: ' + param.data[3],
+                        'Q1: ' + param.data[2],
+                        'lower: ' + param.data[1]
+                    ].join('<br/>')
+                }
+            }
+        },
+
+    ]
+};
+
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
