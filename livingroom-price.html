@@ -3,7 +3,7 @@
    <head>
        <meta charset="utf-8">
    </head>
-   <body style="height: 100%; margin: 1% 5%">
+   <body style="height: 100%; margin: 1% ">
        <div id="container" style="height: 100%"></div>
        <script type="text/javascript" src="echarts.min.js"></script>
        <script type="text/javascript" src="dataTool.min.js"></script>
@@ -49,12 +49,15 @@ option = {
     },
     xAxis: {
         type: 'category',
-        data: ['no living room','1 living rooms','2 living rooms','3 living rooms'],
+        data: ['No living room','1 living rooms','2 living rooms','3 living rooms'],
 
         nameTextStyle: {
             color: '#3259B8',
             fontSize: 14,
             
+        },
+        axisTick:{
+            show:false,
         },
         axisLine: {
             lineStyle: {
@@ -68,12 +71,13 @@ option = {
     
     yAxis: {
         type: 'value',
-        name: 'price per square meter',
         nameTextStyle: {
             color: '#3259B8',
             fontSize: 14,
         },
-        
+        axisLabel:{
+            formatter:'{value} CNY/㎡',
+        },
         axisLine: {
             lineStyle: {
                 color: '#3259B8',
