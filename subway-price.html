@@ -11,7 +11,7 @@
 var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
- 
+
 var data = echarts.dataTool.prepareBoxplotData([
     [21616, 54599.5, 69534, 91504, 159980],
     [15202, 42841, 51050, 71902, 159977]
@@ -30,7 +30,7 @@ option = {
         right: '10%',
         bottom: '15%'
     },
-    xAxis: {
+    yAxis: {
         type: 'category',
         data: ['Houses adjacent to subway', 'Houses away from subway'],
         nameTextStyle: {
@@ -42,12 +42,18 @@ option = {
                 color: '#3259B8',
             }
         },
+        axisTick:{
+            show:false,
+        },
+        axisLabel:{
+            rotate:90,
+        },
         splitLine: {
             show: false
         }
     },
     
-    yAxis: {
+    xAxis: {
         type: 'value',
         name: 'price per square meter',
         nameTextStyle: {
@@ -57,6 +63,7 @@ option = {
         axisLabel: {
             formatter: '{value} CNY/㎡'
         },
+       
         axisLine: {
             lineStyle: {
                 color: '#3259B8',
