@@ -11,7 +11,6 @@
 var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
-
 var data = echarts.dataTool.prepareBoxplotData([
     [21616, 54599.5, 69534, 91504, 159980],
     [15202, 42841, 51050, 71902, 159977]
@@ -55,6 +54,7 @@ option = {
     
     xAxis: {
         type: 'value',
+        
         nameTextStyle: {
             color: '#3259B8',
             fontSize: 14,
@@ -85,10 +85,10 @@ option = {
                 normal:{
                     borderColor: {
                     type: 'linear',
-                    x: 0,
+                    x: 1,
                     y: 0,
                     x2: 0,
-                    y2: 1,
+                    y2: 0,
                     colorStops: [{
                         offset: 0,
                         color: '#F02FC2' // 0% 处的颜色
@@ -101,10 +101,10 @@ option = {
                 borderWidth:2,
                 color: {
                     type: 'linear',
-                    x: 0,
+                    x: 1,
                     y: 0,
                     x2: 0,
-                    y2: 1,
+                    y2: 0,
                     colorStops: [{
                         offset: 0,
                         color: 'rgba(240,47,194,0.7)'  // 0% 处的颜色

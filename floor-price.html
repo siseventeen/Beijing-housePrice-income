@@ -54,12 +54,15 @@ option = {
     },
     xAxis: {
         type: 'category',
-        data: ['底','低','中','高','顶'],
+        data: ['Bottom','Low','Middle','High','Top'],
 
         nameTextStyle: {
             color: '#3259B8',
             fontSize: 14,
             
+        },
+        axisTick: {
+            show: false,
         },
         axisLine: {
             lineStyle: {
@@ -73,12 +76,15 @@ option = {
     
     yAxis: {
         type: 'value',
-        name: 'price per square meter',
+ 
         nameTextStyle: {
             color: '#3259B8',
             fontSize: 14,
         },
-        
+        axisLabel: {
+            formatter: '{value} CNY/㎡'
+        },
+       
         axisLine: {
             lineStyle: {
                 color: '#3259B8',
