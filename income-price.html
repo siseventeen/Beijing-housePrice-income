@@ -33,6 +33,28 @@ for (var i = 0; i < 17; i++) {
 
 
 // option
+// Generate data
+var category = [];
+var dottedBase = [];
+var lineData = [18092,20728,24045,28348,32808
+                ,36097,39867,44715,48444,50415
+                ,56061,62677,69521,77560,85038
+                ,92477,102268];
+var barData = [4600,5000,5500,6500,7500
+                ,8500,9900,12500,14000,21500
+                ,23200,24450,25250,33300,35800
+                ,45400,59810];
+var rateData = [];               
+
+for (var i = 0; i < 17; i++) {
+    var date = i+2001;
+    category.push(date);
+    var rate=lineData[i]/barData[i];
+    rateData[i] = rate.toFixed(2);
+}
+
+
+// option
 option = {
     title: {
         text: 'Trend of average house price and employees’ annual income in Beijing',
@@ -61,7 +83,7 @@ option = {
         textStyle: {
             color: '#ccc'
         },
-        top:'5%',
+        top:'7%',
     },
     grid:{
         x:'12%',
@@ -80,7 +102,7 @@ option = {
         },
     },
     yAxis: [{
-        name:'Money',
+
         splitLine: {show: false},
         axisLine: {
             lineStyle: {
@@ -93,7 +115,7 @@ option = {
         }
     },
         {
-        name:'Squares',
+
         splitLine: {show: false},
         axisLine: {
             lineStyle: {
@@ -163,7 +185,6 @@ option = {
     }, 
    ]
 };
-
 
 
 if (option && typeof option === "object") {
