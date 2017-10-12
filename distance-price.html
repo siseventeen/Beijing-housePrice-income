@@ -47,8 +47,8 @@ option = {
         showDelay: 0,
         formatter: function(params) {
             if (params.value.length > 1) {
-                return params.seriesName + ':<br/>' +
-                    params.value[0] + 'm ' +
+                return  'Distance to subway: ' +
+                    params.value[0] + 'm <br/>' +'House price: '+
                     params.value[1] + 'CNY/㎡ ';
             } else {
                 return params.seriesName + ' :<br/>' +
