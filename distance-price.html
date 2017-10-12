@@ -13,7 +13,15 @@ var myChart = echarts.init(dom);
 var app = {};
 option = {
     //backgroundColor: '#191E40',
-    title: {},
+    title: {
+        text: 'Dispersion of house price and distance to subway',
+        x: 'center',
+        y: 0,
+        textStyle:{
+            color:'#3259B8',
+            fontSize:16,
+            fontWeight:'normal',
+      }},
     visualMap: {
         min: 15202,
         max: 159980,
@@ -37,6 +45,7 @@ option = {
         orient:'horizontal',
     },
     grid: {
+        top:'10%',
         left: '3%',
         right: '4%',
         bottom: '3%',
