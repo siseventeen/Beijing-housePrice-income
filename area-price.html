@@ -17,25 +17,39 @@ var app = {};
 // option
 option = {
     backgroundColor: '#191E40',
-    title: {},
+    title: {
+        text: 'Dispersion of house price based on the area',
+        x: 'center',
+        y: 0,
+        textStyle:{
+            color:'rgba(255,255,255,0.5)',
+            fontSize:16,
+            fontWeight:'normal',
+      }},
     visualMap: {
         min: 15202,
         max: 159980,
-        show:false,
         dimension: 1,
         left: 'right',
         top: 'top',
         text: ['HIGH', 'LOW'], // 文本，默认为数值文本
         calculable: true,
+        itemWidth:18,
+        itemHeight:160,
         textStyle: {
-                color: 'rgba(255,255,255,0.5)',
+                color:'rgba(255,255,255,0.5)',
+                height: 56,
+                fontSize:11,
+                lineHeight:60,
             },
         inRange: {
             color: ['#3EACE5', '#F02FC2']
-        }
+        },
+        padding:[50, 20],
+        orient:'horizontal',
     },
     grid: {
-        left: '3%',
+        left: '5%',
         right: '4%',
         bottom: '3%',
         containLabel: true
@@ -45,8 +59,8 @@ option = {
         showDelay: 0,
         formatter: function(params) {
             if (params.value.length > 1) {
-                return params.seriesName + ' :<br/>' +
-                    params.value[0] + '㎡ ' +
+                return 'Area: ' +
+                    params.value[0] + '㎡<br/> ' +'House price: '+
                     params.value[1] + ' CNY/㎡ ';
             } else {
                 return params.seriesName + ' :<br/>' +
@@ -74,16 +88,16 @@ option = {
             color: 'rgba(255,255,255,0.5)',
             fontSize: 14,
         },
+        axisTick:{
+            show:false,
+        },
         axisLine: {
             lineStyle: {
-                color: '#ccc',
+                color: 'rgba(255,255,255,0.5)',
             }
         },
         splitLine: {
-            lineStyle: {
-                type: 'dashed',
-                color: 'rgba(255,255,255,0.5)',
-            }
+            show:false,
         }
     }],
     yAxis: [{
@@ -93,8 +107,11 @@ option = {
             formatter: '{value} CNY/㎡'
         },
         nameTextStyle: {
-            color: '#ccc',
+            color: 'rgba(255,255,255,0.5)',
             fontSize: 14
+        },
+        axisTick:{
+            show:false,
         },
         axisLine: {
             lineStyle: {
@@ -102,10 +119,7 @@ option = {
             }
         },
         splitLine: {
-            lineStyle: {
-                type: 'dashed',
-                color: 'rgba(255,255,255,0.5)',
-            }
+            show:false,
         }
     }],
     series: [{
@@ -16287,20 +16301,9 @@ option = {
                 [18.78, 23430],
                 [18.06, 25471],
             ],
-            symbolSize:7,
+            symbolSize:7,},
             
-            markLine: {
-                data: [{
-                    type: 'average',
-                    name: '平均值'
-                }],
-                lineStyle:{
-                    normal:{
-                      color:'#BBD4FD',  
-                    }
-                }
-            }
-        },
+            
 
 
     ]
