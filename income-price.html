@@ -10,30 +10,7 @@
 var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
-  // Generate data
-// Generate data
-var category = [];
-var dottedBase = [];
-var lineData = [18092,20728,24045,28348,32808
-                ,36097,39867,44715,48444,50415
-                ,56061,62677,69521,77560,85038
-                ,92477,102268];
-var barData = [4600,5000,5500,6500,7500
-                ,8500,9900,12500,14000,21500
-                ,23200,24450,25250,33300,35800
-                ,45400,59810];
-var rateData = [];               
-
-for (var i = 0; i < 17; i++) {
-    var date = i+2001;
-    category.push(date);
-    var rate=lineData[i]/barData[i];
-    rateData[i] = rate.toFixed(2);
-}
-
-
-// option
-// Generate data
+ // Generate data
 var category = [];
 var dottedBase = [];
 var lineData = [18092,20728,24045,28348,32808
@@ -61,27 +38,28 @@ option = {
         x: 'center',
         y: 0,
         textStyle:{
-            color:'rgba(255,255,255,0.8)',
+            color:'#B4B4B4',
             fontSize:16,
+            fontWeight:'normal',
         },
         
     },
     backgroundColor: '#191E40',
     tooltip: {
         trigger: 'axis',
-        backgroundColor:'rgba(255,255,255,0.2)',
+        backgroundColor:'rgba(255,255,255,0.1)',
         axisPointer: {
             type: 'shadow',
             label: {
                 show: true,
-                backgroundColor: '#3259B8'
+                backgroundColor: '#7B7DDC'
             }
         }
     },
     legend: {
         data: ['Average house price per square meter', 'Average annual income','Average squares could be covered by income anually',],
         textStyle: {
-            color: '#ccc'
+            color: '#B4B4B4'
         },
         top:'7%',
     },
@@ -94,7 +72,7 @@ option = {
         data: category,
         axisLine: {
             lineStyle: {
-                color: '#ccc'
+                color: '#B4B4B4'
             }
         },
         axisTick:{
@@ -106,7 +84,7 @@ option = {
         splitLine: {show: false},
         axisLine: {
             lineStyle: {
-                color: '#ccc',
+                color: '#B4B4B4',
             }
         },
         
@@ -119,7 +97,7 @@ option = {
         splitLine: {show: false},
         axisLine: {
             lineStyle: {
-                color: '#ccc',
+                color: '#B4B4B4',
             }
         },
         axisLabel:{
@@ -185,7 +163,6 @@ option = {
     }, 
    ]
 };
-
 
 if (option && typeof option === "object") {
     myChart.setOption(option, true);
