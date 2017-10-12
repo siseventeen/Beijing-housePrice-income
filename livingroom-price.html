@@ -35,7 +35,16 @@ var data = echarts.dataTool.prepareBoxplotData([
 ]);
 
 option = {
-
+    title: {
+        text:'Dispersion of house price according to the number of living rooms',
+        x: 'center',
+        y: 20,
+        textStyle:{
+            color:'#3259B8',
+            fontSize:16,
+            fontWeight:'normal',
+        },
+    },
     tooltip: {
         trigger: 'item',
         axisPointer: {
@@ -43,9 +52,9 @@ option = {
         }
     },
     grid: {
-        left: '10%',
+        left: '15%',
         right: '10%',
-        bottom: '15%'
+        
     },
     xAxis: {
         type: 'category',
@@ -77,6 +86,9 @@ option = {
         },
         axisLabel:{
             formatter:'{value} CNY/㎡',
+        },
+        axisTick:{
+            show:false,
         },
         axisLine: {
             lineStyle: {
@@ -153,11 +165,11 @@ option = {
                 formatter: function(param) {
                     return [
 
-                        'upper: ' + param.data[5],
-                        'Q3: ' + param.data[4],
-                        'median: ' + param.data[3],
-                        'Q1: ' + param.data[2],
-                        'lower: ' + param.data[1]
+                        'Upper: ' + param.data[5] + ' CNY/㎡' ,
+                        'Q3: ' + param.data[4] + ' CNY/㎡',
+                        'Median: ' + param.data[3] + ' CNY/㎡',
+                        'Q1: ' + param.data[2] + ' CNY/㎡',
+                        'Lower: ' + param.data[1] + ' CNY/㎡'
                     ].join('<br/>')
                 }
             }
@@ -165,7 +177,6 @@ option = {
 
     ]
 };
-
 if (option && typeof option === "object") {
     myChart.setOption(option, true);
 }
