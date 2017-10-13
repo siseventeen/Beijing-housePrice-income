@@ -3,103 +3,15 @@
    <head>
        <meta charset="utf-8">
    </head>
-   <body style="height: 100%; margin: 0">
+   <body style="height: 100%; margin: 1% ">
        <div id="container" style="height: 100%"></div>
        <script type="text/javascript" src="echarts.min.js"></script>
+       <script type="text/javascript" src="dataTool.min.js"></script>
        <script type="text/javascript">
 var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
-  // Generate data
-option = {
-    backgroundColor: '#191E40',
-    title: {},
-    visualMap: {
-        min: 15202,
-        max: 159980,
-        dimension: 1,
-        left: 'right',
-        top: 'top',
-        text: ['HIGH', 'LOW'], // 文本，默认为数值文本
-        calculable: true,
-        textStyle: {
-                color: 'rgba(255,255,255,0.5)',
-            },
-        inRange: {
-            color: ['#3EACE5', '#F02FC2']
-        }
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-    },
-    tooltip: {
-        trigger: 'item',
-        showDelay: 0,
-        formatter: function(params) {
-            if (params.value.length > 1) {
-                return params.seriesName + ' :<br/>' +
-                    params.value[0] + '㎡ ' +
-                    params.value[1] + ' CNY/㎡ ';
-            } else {
-                return params.seriesName + ' :<br/>' +
-                    params.name + ' : ' +
-                    params.value + ' CNY/㎡ ';
-            }
-        },
-        axisPointer: {
-            show: true,
-            type: 'cross',
-            lineStyle: {
-                type: 'dashed',
-                width: 1
-            }
-        }
-    },
-
-    xAxis: [{
-        type: 'value',
-        scale: true,
-        
-        nameTextStyle: {
-            color: 'rgba(255,255,255,0.5)',
-            fontSize: 14,
-        },
-        axisLine: {
-            lineStyle: {
-                color: 'rgba(255,255,255,0.5)',
-            }
-        },
-        splitLine: {
-            show:false,
-        }
-    }],
-    yAxis: [{
-        type: 'value',
-        scale: true,
-        axisLabel: {
-            formatter: '{value} CNY/㎡'
-        },
-        nameTextStyle: {
-            color: 'rgba(255,255,255,0.5)',
-            fontSize: 14
-        },
-        axisLine: {
-            lineStyle: {
-                color:'rgba(255,255,255,0.5)',
-            }
-        },
-        splitLine: {
-            show:false,
-        }
-    }],
-    series: [{
-            name: 'price-area',
-            type: 'scatter',
-            data: [
-             [2008,85923],
+var priceData= [[2008,85923],
 [2003,59849],
 [2010,70538],
 [2009,75965],
@@ -16011,14 +15923,130 @@ option = {
 [2009,66840],
 [2004,62057],
 [2000,25418],
-            ],
+    ];
+    
+var timeData =[];
+
+for (var i=0; i<68; i++){
+    timeData[i]=1950+i;
+}
+
+
+
+    
+option = {
+    backgroundColor: '#191E40',
+    title: {
+        text: 'Dispersion of house price according to the built time',
+        x: 'center',
+        y: 0,
+        textStyle:{
+            color:'rgba(255,255,255,0.5)',
+            fontSize:16,
+            fontWeight:'normal',
+      }},
+   visualMap: {
+        min: 15202,
+        max: 159980,
+        dimension: 1,
+        left: 'right',
+        top: 'top',
+        text: ['HIGH', 'LOW'], // 文本，默认为数值文本
+        calculable: true,
+        itemWidth:18,
+        itemHeight:160,
+        textStyle: {
+                color:'rgba(255,255,255,0.5)',
+                height: 56,
+                fontSize:11,
+                lineHeight:60,
+            },
+        inRange: {
+            color: ['#3EACE5', '#F02FC2']
+        },
+        padding:[50, 20],
+        orient:'horizontal',
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    tooltip: {
+        trigger: 'item',
+        showDelay: 0,
+        formatter: function(params) {
+            if (params.value.length > 1) {
+                return 'The built time: ' +
+                    params.value[0] + ' <br/>' +
+                    'House price: '+params.value[1] + ' CNY/㎡ ';
+            } else {
+                return params.seriesName + ' :<br/>' +
+                    params.name + ' : ' +
+                    params.value + ' CNY/㎡ ';
+            }
+        },
+       
+    },
+    xAxis: [{
+        type: 'value',
+        scale: true,
+        data:timeData,
+        nameTextStyle: {
+            color: 'rgba(255,255,255,0.5)',
+            fontSize: 14,
+        },
+        max:2016,
+        axisLine: {
+            lineStyle: {
+                color: 'rgba(255,255,255,0.5)',
+            }
+        },
+        axisTick:{
+            show:false,
+        },
+        minInterval:1,
+        splitLine: {
+            show:false,
+        },
+        axisLabel : {
+            formatter: function(v){ return v; }
+        }
+    }],
+    yAxis: [{
+        type: 'value',
+        scale: true,
+        axisLabel: {
+            formatter: '{value} CNY/㎡'
+        },
+        nameTextStyle: {
+            color: 'rgba(255,255,255,0.5)',
+            fontSize: 14
+        },
+        axisLine: {
+            lineStyle: {
+                color:'rgba(255,255,255,0.5)',
+            }
+        },
+        axisTick:{
+            show:false,
+        },
+        splitLine: {
+            show:false,
+        }
+    }],
+    series: [{
+            name: 'price-area',
+            type: 'scatter',
+            data: priceData,
             symbolSize:4,
          
         },
 
-
     ]
 };
+
 if (option && typeof option === "object") {
     myChart.setOption(option, true);
 }
