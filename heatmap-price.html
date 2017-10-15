@@ -20,8 +20,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoieHVhbnN1ZXIiLCJhIjoiY2oxejh2MDhlMDFqdDJ3cWw3Z
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/xuansuer/cj7zn3l666yos2sjsoj5hg7wh', // stylesheet location
-    center: [116.436,39.907], // starting position [lng, lat]
-    zoom: 9.6 // starting zoom
+    center: [116.4,39.94], // starting position [lng, lat]
+    zoom: 10.5 // starting zoom
 });
 
 
@@ -33,7 +33,7 @@ map.on('load', function() {
         type: "geojson",
         // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
         // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
-        data: "data_.geojson",
+        data: "data_100.geojson",
         cluster: true,
         clusterMaxZoom: 15, // Max zoom to cluster points on
         clusterRadius: 20 // Use small cluster radius for the heatmap look
@@ -44,9 +44,10 @@ map.on('load', function() {
 
     // Each point range gets a different fill color.
     var layers = [
-        [0, 'green'],
-        [10, 'orange'],
-        [20, 'red']
+        [0, '#7E80D9'],
+        [3, '#B756CD'],
+        [6, '#EE31C3'],
+        
     ];
 
     layers.forEach(function (layer, i) {
@@ -72,7 +73,7 @@ map.on('load', function() {
         "type": "circle",
         "source": "prices",
         "paint": {
-            "circle-color": 'rgba(0,255,0,0.5)',
+            "circle-color": 'rgba(62,172,229,0.5)',
             "circle-radius": 20,
             "circle-blur": 1
         },
