@@ -58,7 +58,8 @@ map.on('load', function() {
             "paint": {
                 "circle-color": layer[1],
                 "circle-radius": 70,
-                "circle-blur": 1 // blur the circles to get a heatmap look
+                "circle-blur": 2
+                 // blur the circles to get a heatmap look
             },
             "filter": i === layers.length - 1 ?
                 [">=", "point_count", layer[0]] :

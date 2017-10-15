@@ -7,7 +7,10 @@
        <div id="container" style="height: 100%"></div>
        <script type="text/javascript" src="echarts.min.js"></script>
        <script type="text/javascript" src="dataTool.min.js"></script>
+       <script type="text/javascript" src="bmap.min.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
        <script type="text/javascript">
+
 var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
@@ -121,6 +124,7 @@ var schoolData = [
     {name:'裕中小学',value: '1.Level I- Class I primary school'},
     {name:'北京第二实验小学',value:'5.Level I- Class I primary school'},
     {name:'西单小学',value: '4.Level I- Class I primary school'},
+{name:'中关村三小',value:'94.Level II- Class I primary school'},
 ];
 
 var geoCoordMap = {
@@ -230,6 +234,7 @@ var geoCoordMap = {
 '裕中小学':[116.3927310053,39.9767831434],
 '北京第二实验小学':[116.3742211068,39.9109625756],
 '西单小学':[116.3761911068,39.9151525756],
+'中关村三小':[116.3023624012,39.9749230224],
 };
 
 
@@ -250,8 +255,8 @@ var convertData = function (data) {
 
     option = {
         bmap: {
-            center: [116.3742211068,39.9109625756],
-            zoom: 15.5,
+            center: [116.306,39.973],
+            zoom: 16,
             roam: true,
             mapStyle: {
                 styleJson: [{
@@ -412,13 +417,33 @@ var convertData = function (data) {
             coordinateSystem: 'bmap',
             zlevel: 1,
             data: [{
-                name: '石灯胡同6号院',
-                toname: '北京第二实验小学',
-                coords: [geoCoordMap['石灯胡同6号院'], geoCoordMap['北京第二实验小学']]
+                name: '万泉新新家园',
+                toname: '中关村三小',
+                coords: [geoCoordMap['万泉新新家园'], geoCoordMap['中关村三小']]
             }, {
-                name: '佟麟阁路62号院',
-                toname: '北京第二实验小学',
-                coords: [geoCoordMap['佟麟阁路62号院'], geoCoordMap['北京第二实验小学']]
+                name: '碧水云天',
+                toname: '中关村三小',
+                coords: [geoCoordMap['碧水云天'], geoCoordMap['中关村三小']]
+            },{
+                name: '涧桥泊屋',
+                toname: '中关村三小',
+                coords: [geoCoordMap['涧桥泊屋'], geoCoordMap['中关村三小']]
+            },{
+                name: '蜂鸟家园',
+                toname: '中关村三小',
+                coords: [geoCoordMap['蜂鸟家园'], geoCoordMap['中关村三小']]
+            },{
+                name: '光大水墨风景',
+                toname: '中关村三小',
+                coords: [geoCoordMap['光大水墨风景'], geoCoordMap['中关村三小']]
+            },{
+                name: '康桥水郡',
+                toname: '中关村三小',
+                coords: [geoCoordMap['康桥水郡'], geoCoordMap['中关村三小']]
+            },{
+                name: '锋尚国际',
+                toname: '中关村三小',
+                coords: [geoCoordMap['锋尚国际'], geoCoordMap['中关村三小']]
             },
             ],
             //线上面的动态特效
@@ -490,7 +515,7 @@ var convertData = function (data) {
         }, 
         ]
     };
-myChart.setOption(option);
+
 
 
 if (option && typeof option === "object") {
