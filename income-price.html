@@ -11,6 +11,7 @@ var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
  // Generate data
+// Generate data
 var category = [];
 var dottedBase = [];
 var lineData = [18092,20728,24045,28348,32808
@@ -25,8 +26,8 @@ var rateData = [];
 
 for (var i = 0; i < 17; i++) {
     var date = i+2001;
-    category.push(date);
-    var rate=lineData[i]/barData[i];
+    category.push(date)
+    var rate=barData[i]/lineData[i];
     rateData[i] = rate.toFixed(2);
 }
 
@@ -57,7 +58,7 @@ option = {
         }
     },
     legend: {
-        data: ['Average house price per square meter', 'Average annual income','Average squares could be covered by income anually',],
+        data: ['Average house price per square meter', 'Average annual income','Housing price-income ratio',],
         textStyle: {
             color: '#B4B4B4'
         },
@@ -106,7 +107,7 @@ option = {
     }],
     
     series: [{
-        name: 'Average squares could be covered by income anually',
+        name: 'Housing price-income ratio',
         type: 'line',
         smooth: true,
         showAllSymbol: true,
@@ -163,7 +164,6 @@ option = {
     }, 
    ]
 };
-
 if (option && typeof option === "object") {
     myChart.setOption(option, true);
 }
