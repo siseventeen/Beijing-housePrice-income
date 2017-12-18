@@ -15925,23 +15925,14 @@ var priceData= [[2008,85923],
 [2000,25418],
     ];
     
-var timeData =[];
-
-for (var i=0; i<68; i++){
-    timeData[i]=1950+i;
-}
-
-
-
-    
 option = {
-    backgroundColor: '#191E40',
+
     title: {
         text: 'Dispersion of house price according to the built time',
         x: 'center',
         y: 0,
         textStyle:{
-            color:'rgba(255,255,255,0.5)',
+            color:'#3259B8',
             fontSize:16,
             fontWeight:'normal',
       }},
@@ -15956,7 +15947,7 @@ option = {
         itemWidth:18,
         itemHeight:160,
         textStyle: {
-                color:'rgba(255,255,255,0.5)',
+                color:'#3259B8',
                 height: 56,
                 fontSize:11,
                 lineHeight:60,
@@ -15989,29 +15980,26 @@ option = {
         },
        
     },
-    xAxis: [{
+     xAxis: [{
         type: 'value',
         scale: true,
-        data:timeData,
-        nameTextStyle: {
-            color: 'rgba(255,255,255,0.5)',
-            fontSize: 14,
+        axisLabel: {
+            formatter: '{value} m'
         },
-        max:2016,
-        axisLine: {
-            lineStyle: {
-                color: 'rgba(255,255,255,0.5)',
-            }
+        nameTextStyle: {
+            color: '#3259B8',
+            fontSize: 14,
         },
         axisTick:{
             show:false,
         },
-        minInterval:1,
+        axisLine: {
+            lineStyle: {
+                color: '#3259B8',
+            }
+        },
         splitLine: {
             show:false,
-        },
-        axisLabel : {
-            formatter: function(v){ return v; }
         }
     }],
     yAxis: [{
@@ -16021,16 +16009,16 @@ option = {
             formatter: '{value} CNY/㎡'
         },
         nameTextStyle: {
-            color: 'rgba(255,255,255,0.5)',
+            color: '#3259B8',
             fontSize: 14
-        },
-        axisLine: {
-            lineStyle: {
-                color:'rgba(255,255,255,0.5)',
-            }
         },
         axisTick:{
             show:false,
+        },
+        axisLine: {
+            lineStyle: {
+                color:'#3259B8',
+            }
         },
         splitLine: {
             show:false,

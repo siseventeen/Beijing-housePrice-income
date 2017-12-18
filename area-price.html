@@ -16,13 +16,13 @@ var app = {};
 
 // option
 option = {
-    backgroundColor: '#191E40',
+
     title: {
         text: 'Dispersion of house price based on the area',
         x: 'center',
         y: 0,
         textStyle:{
-            color:'rgba(255,255,255,0.5)',
+            color:'#3259B8',
             fontSize:16,
             fontWeight:'normal',
       }},
@@ -37,7 +37,7 @@ option = {
         itemWidth:18,
         itemHeight:160,
         textStyle: {
-                color:'rgba(255,255,255,0.5)',
+                color:'#3259B8',
                 height: 56,
                 fontSize:11,
                 lineHeight:60,
@@ -78,14 +78,14 @@ option = {
         }
     },
 
-    xAxis: [{
+xAxis: [{
         type: 'value',
         scale: true,
         axisLabel: {
-            formatter: '{value}㎡'
+            formatter: '{value} m'
         },
         nameTextStyle: {
-            color: 'rgba(255,255,255,0.5)',
+            color: '#3259B8',
             fontSize: 14,
         },
         axisTick:{
@@ -93,7 +93,7 @@ option = {
         },
         axisLine: {
             lineStyle: {
-                color: 'rgba(255,255,255,0.5)',
+                color: '#3259B8',
             }
         },
         splitLine: {
@@ -107,7 +107,7 @@ option = {
             formatter: '{value} CNY/㎡'
         },
         nameTextStyle: {
-            color: 'rgba(255,255,255,0.5)',
+            color: '#3259B8',
             fontSize: 14
         },
         axisTick:{
@@ -115,7 +115,7 @@ option = {
         },
         axisLine: {
             lineStyle: {
-                color:'rgba(255,255,255,0.5)',
+                color:'#3259B8',
             }
         },
         splitLine: {
@@ -16301,16 +16301,14 @@ option = {
                 [18.78, 23430],
                 [18.06, 25471],
             ],
-            symbolSize:7,},
+            symbolSize:4,
             
             
+        },
 
 
     ]
 };
-
-
-
 
 
 if (option && typeof option === "object") {
